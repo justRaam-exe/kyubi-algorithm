@@ -16,9 +16,9 @@ def share_chakra(ninja, decay):
             child.chakra = decay
             ninja.chakra -= decay  # kurangi chakra pemberi
             print(f"{ninja.name} membagikan {decay} chakra ke {child.name} (sisa: {ninja.chakra})")
-            share_chakra(child, decay)
+            share_chakra(child, decay)  # hanya lanjut kalau chakra diterima
         else:
-            print(f"{ninja.name} tidak punya cukup chakra untuk membagikan ke {child.name} (sisa: {ninja.chakra})")
+            print(f"{ninja.name} TIDAK CUKUP chakra untuk {child.name} (dibutuhkan: {decay}, sisa: {ninja.chakra})")
 
 def show_chakra(ninja, level=0):
     print("  " * level + f"{ninja.name}: {ninja.chakra}")
@@ -47,9 +47,9 @@ for _ in range(n):
 
 # Masukkan nilai decay chakra
 decay = int(input("Masukkan jumlah chakra yang dibagikan ke setiap ninja: "))
-print("\n🔁 Distribusi Chakra:")
+print("\nDistribusi Chakra:")
 share_chakra(root, decay)
 
 # Tampilkan hasil
-print("\n📊 Chakra Akhir Tiap Ninja:")
+print("\nChakra Akhir Tiap Ninja:")
 show_chakra(root)
